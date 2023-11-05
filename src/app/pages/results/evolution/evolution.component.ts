@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvolutionComponent implements OnInit {
 
+  evolutionImages = [
+    '/assets/images/Pokeball.png',
+    '/assets/images/Pokeball.png',
+    '/assets/images/Pokeball.png'
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

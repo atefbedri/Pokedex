@@ -1,1 +1,15 @@
-<p>evolution works!</p>
+<div id="evolution">
+    <div class="evolution">
+        <div *ngFor="let image of evolutionImages; let index = index" class="evolution-image">
+            <img [src]="image" alt="Avatar Evolution">
+            <span *ngIf="evolutionImages.length-1 != index" class="arrow-icon">
+              <svg width="98" height="12" viewBox="0 0 98 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 6H95.0388" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
+                <path d="M91.5 2.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
+                <path d="M91.5 9.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+          </span>
+        </div>
+    </div>
+
+</div>
