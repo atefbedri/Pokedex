@@ -22,13 +22,14 @@
                 }
             }
             .types-container {
-                width: 401px;
+                max-width: 401px;
                 height: 60px;
                 display: flex;
                 justify-content: space-between;
                 margin: auto;
                 .type {
-                    width: 162.25px;
+                    max-width: 162.25px;
+                    min-width: 142px;
                     height: 45px;
                     color: white;
                     background-color: purple;
@@ -42,13 +43,13 @@
             p {
                 font-family: "Abel";
                 font-size: 18px;
-                width: 972px;
+                max-width: 972px;
                 text-align: center;
                 margin: auto;
                 padding-top: 2pc;
             }
             .tabs {
-                width: 710px;
+                max-width: 710px;
                 height: 75px;
                 display: flex;
                 justify-content: space-around;
@@ -64,7 +65,7 @@
                 }
             }
             .tab-content {
-                min-width: 375px;
+                min-width: 360px;
                 max-width: 647px;
                 display: flex;
                 justify-content: center;

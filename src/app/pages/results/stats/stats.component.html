@@ -1,1 +1,11 @@
-<p>stats works!</p>
+<div id="stats">
+    <div class="abilities">
+        <div *ngFor="let ability of abilities" class="ability">
+            <div class="ability-name">{{ ability.name }}</div>
+            <div class="ability-value">{{ ability.name }}</div>
+            <div class="progress-bar">
+                <div class="progress" [style.width]="ability.percent + '%'"></div>
+            </div>
+        </div>
+    </div>
+</div>
