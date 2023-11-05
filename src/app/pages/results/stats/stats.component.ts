@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-stats',
@@ -6,12 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
-  abilities = [
-    { name: 'HP', percent: 80 },
-    { name: 'ATK', percent: 70 },
-    { name: 'DEF', percent: 60 },
-    { name: 'SATK', percent: 90 },
-  ];
+  @Input() stats: any = null;
+
   constructor() { }
 
   ngOnInit(): void {

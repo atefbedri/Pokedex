@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-evolution',
@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvolutionComponent implements OnInit {
 
-  evolutionImages = [
-    '/assets/images/Pokeball.png',
-    '/assets/images/Pokeball.png',
-    '/assets/images/Pokeball.png'
-  ];
+  @Input() evolutions: any = null;
+
 
   constructor() { }
 
