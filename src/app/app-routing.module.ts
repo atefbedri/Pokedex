@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: "",
     component: SearchComponent
-  }
+  },
+  {
+    path: 'results',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+  },
 ];
 
 @NgModule({

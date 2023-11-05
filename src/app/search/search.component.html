@@ -5,10 +5,10 @@
         </div>
         <div class="form">
             <p>Pokemon Name or Id</p>
-            <input type="text">
+            <input type="text" [(ngModel)]="searchInput" name="searchInput">
         </div>
         <div class="buttons">
-            <button class="action">Search</button>
+            <button class="action" (click)="search()">Search</button>
             <button class="action">Random</button>
         </div>
     </div>
