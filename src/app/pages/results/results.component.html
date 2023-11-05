@@ -19,9 +19,13 @@
             </div>
             <p>Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
             <div class="tabs">
-                <button class="tab">STATS</button>
-                <button class="tab">EVOLUTION</button>
+                <button class="tab" (click)="currentTab = 'STATS'">STATS</button>
+                <button class="tab" (click)="currentTab = 'EVOLUTION'">EVOLUTION</button>
                 <button class="tab">MOVES</button>
+            </div>
+            <div class="tab-content">
+                <app-stats *ngIf="currentTab == 'STATS'"></app-stats>
+                <app-evolution *ngIf="currentTab == 'EVOLUTION'"></app-evolution>
             </div>
         </div>
     </div>
