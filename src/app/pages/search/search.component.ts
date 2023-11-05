@@ -28,4 +28,12 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  /**
+   * Generate a random id for pokemon
+   */
+  generateRandomNumber() {
+    this.searchInput = (Math.floor(Math.random() * 898) + 1).toString();
+    this.search()
+  }
+
 }
