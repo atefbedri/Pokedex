@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class EvolutionComponent implements OnInit {
 
   @Input() evolutions: any = null;
+  @Input() background: string = "#A8A87B";
 
 
   constructor() { }
@@ -15,4 +16,12 @@ export class EvolutionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Convert first char to upper case
+   * @param text
+   * @returns text
+   */
+  capitalizeFirstLetter(text: string) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
 }

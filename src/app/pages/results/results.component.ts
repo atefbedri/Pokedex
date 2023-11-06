@@ -45,9 +45,12 @@ export class ResultsComponent implements OnInit {
       });
       });
 
-      // Extract types
-      this.pokemonData.types = this.pokemonDetails.types.map((type: any) => ({name:type.type.name.replace(/"/g, '')
-    }));
+    // Extract types names and background color
+    this.pokemonData.types = this.pokemonDetails.types.map((type: any) => {
+      const typeName = type.type.name.replace(/"/g, '');
+      const backgroundColor = this.getColorForType(typeName);
+      return { name: typeName, bg: backgroundColor };
+    });
 
       // Extract stats
       this.pokemonData.stats = this.pokemonDetails.stats.map((stat: any) => ({
@@ -55,8 +58,8 @@ export class ResultsComponent implements OnInit {
         value: stat.base_stat
       }));
 
-      // Determine the background color based on some attribute (e.g., the first type)
-      this.pokemonData.backgroundColor = this.getColorForType(this.pokemonData.types[0].name);
+      console.log(this.pokemonData);
+
   }
 
   /**
@@ -89,14 +92,30 @@ export class ResultsComponent implements OnInit {
     // Define a mapping of types to colors
     // TODO need to check for the right color from FIGMA
     const typeColors: any = {
-      normal: 'gray',
-      fire: 'red',
-      water: 'blue',
-      grass: 'green',
-      electric: 'yellow'
-
+      normal: '#A8A87B',
+      fire: '#EE803B',
+      water: '#559EDF',
+      grass: '#88BE5D',
+      electric: '#F7CF43',
+      ice: '#9AD8D8',
+      fight: '#BE322E',
+      poison: '#B563CE',
+      ground: '#DFBF6E',
+      flight: '#A893ED',
+      psychic: '#EC5C89',
+      bug: '#A8B732',
+      rock: '#B89F41',
+      ghost: '#705A97',
+      dark: '#705849',
+      dragon: '#7043F4',
+      street: '#B8B9CF',
+      fairy: '#EFB7BD'
     };
-    // Return type color if existe or green as default color
-    return typeColors[type] || 'green';
+    // Return type color if existe or normal as default color
+    return typeColors[type] || '#A8A87B';
+  }
+
+  reset() : void{
+    location.reload();
   }
 }

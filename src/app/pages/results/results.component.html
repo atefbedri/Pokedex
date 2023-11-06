@@ -1,30 +1,30 @@
 <app-search *ngIf="!pokemonDetails" (emitPokemonDetails)="getPokemonDetails($event)"></app-search>
 <div id="results" *ngIf="pokemonDetails">
-    <div class="result-container" [ngStyle]="{'background-color': this.pokemonData.backgroundColor}">
+    <div class="result-container" [ngStyle]="{'background-color': pokemonData.types[0].bg}">
         <div class="header">
-            <svg width="39" height="67" viewBox="0 0 39 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="39" height="67" viewBox="0 0 39 67" fill="none" xmlns="http://www.w3.org/2000/svg" (click)="reset()" style="cursor: pointer;">
             <path d="M11.7693 33.5L37.5721 8.16973C39.476 6.30079 39.476 3.27064 37.5721 1.4017C35.6683 -0.467235 32.5817 -0.467235 30.6779 1.4017L1.42785 30.116C-0.475952 31.9849 -0.475952 35.0151 1.42785 36.884L30.6779 65.5983C32.5817 67.4672 35.6683 67.4672 37.5721 65.5983C39.476 63.7294 39.476 60.6992 37.5721 58.8303L11.7693 33.5Z" fill="#FAFAFA"/>
             </svg>
         </div>
         <div class="content">
             <div class="avatar-container">
-                <img [src]="pokemonDetails.sprites.front_shiny" alt="Pokeball">
+                <img [src]="pokemonData.image" alt="Pokeball">
             </div>
-            <p class="title">{{pokemonDetails?.species?.name}}</p>
+            <p class="title">{{pokemonData?.name}}</p>
             <div class="types-container">
-                <div class="type" *ngFor="let type of pokemonDetails.types">
-                    {{type.type.name}}
+                <div class="type" *ngFor="let type of pokemonData.types" [ngStyle]="{'background-color': type.bg}">
+                    {{type.name.toUpperCase()}}
                 </div>
             </div>
-            <p>{{pokemonDetails.description}}</p>
+            <p>{{pokemonData.description}}</p>
             <div class="tabs">
-                <button class="tab" (click)="currentTab = 'STATS'">STATS</button>
-                <button class="tab" (click)="currentTab = 'EVOLUTION'">EVOLUTION</button>
-                <button class="tab">MOVES</button>
+                <button class="tab" (click)="currentTab = 'STATS'" [ngStyle]="{'background-color': currentTab == 'STATS' ? pokemonData.types[0].bg: '#FFFF', 'color': currentTab == 'STATS' ? '#FFFF' : pokemonData.types[0].bg}">STATS</button>
+                <button class="tab" (click)="currentTab = 'EVOLUTION'" [ngStyle]="{'background-color': currentTab == 'EVOLUTION' ? pokemonData.types[0].bg: '#FFFF', 'color': currentTab == 'EVOLUTION' ? '#FFFF' : pokemonData.types[0].bg}">EVOLUTION</button>
+                <button class="tab" [ngStyle]="{'background-color': false ? pokemonData.types[0].bg: '#FFFF', 'color': false ? '#FFFF' : pokemonData.types[0].bg}">MOVES</button>
             </div>
             <div class="tab-content">
-                <app-stats *ngIf="currentTab == 'STATS'" [stats]="pokemonData.stats"></app-stats>
-                <app-evolution *ngIf="currentTab == 'EVOLUTION'" [evolutions]="pokemonData.evolutions"></app-evolution>
+                <app-stats *ngIf="currentTab == 'STATS'" [stats]="pokemonData.stats" [background]="pokemonData.types[0].bg"></app-stats>
+                <app-evolution *ngIf="currentTab == 'EVOLUTION'" [evolutions]="pokemonData.evolutions" [background]="pokemonData.types[0].bg"></app-evolution>
             </div>
         </div>
     </div>

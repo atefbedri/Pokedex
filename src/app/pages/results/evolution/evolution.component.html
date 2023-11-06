@@ -3,13 +3,13 @@
         <div *ngFor="let item of evolutions; let index = index" class="evolution-image">
             <div class="">
                 <img [src]="item.image" alt="Avatar Evolution">
-                <p>{{item.name}}</p>
+                <p>{{capitalizeFirstLetter(item.name)}}</p>
             </div>
             <span *ngIf="evolutions.length-1 != index" class="arrow-icon">
-              <svg width="98" height="12" viewBox="0 0 98 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 6H95.0388" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
-                <path d="M91.5 2.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
-                <path d="M91.5 9.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round"/>
+              <svg width="98" height="12" viewBox="0 0 98 12" fill="none" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'stroke': background}">
+                <path d="M2 6H95.0388" stroke="#5DBE62" stroke-width="4" stroke-linecap="round" [ngStyle]="{'stroke': background}"/>
+                <path d="M91.5 2.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round" [ngStyle]="{'stroke': background}"/>
+                <path d="M91.5 9.28744L95.0388 6" stroke="#5DBE62" stroke-width="4" stroke-linecap="round" [ngStyle]="{'stroke': background}"/>
                 </svg>
           </span>
         </div>
