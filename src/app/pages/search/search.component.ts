@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokeService } from '../../service/poke.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -24,6 +25,9 @@ export class SearchComponent implements OnInit {
       this._pokeService.searchPokemonByNameOrId(this.searchInput)
       .subscribe((response: any)=>{
         this.emitPokemonDetails.emit(response);
+      },(error: HttpErrorResponse)=>{
+        if(error.status >= 400)
+        this._router.navigate(['not-found']);
       });
     }
   }

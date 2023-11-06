@@ -13,6 +13,10 @@ const routes: Routes = [
     path: "",
     component: ResultsComponent
   },
+  {
+    path: "not-found",
+    component: NotFoundComponent
+  },
 ];
 
 
