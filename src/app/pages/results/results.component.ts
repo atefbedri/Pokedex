@@ -54,6 +54,9 @@ export class ResultsComponent implements OnInit {
         name: stat.stat.name,
         value: stat.base_stat
       }));
+
+      // Determine the background color based on some attribute (e.g., the first type)
+      this.pokemonData.backgroundColor = this.getColorForType(this.pokemonData.types[0].name);
   }
 
   /**
@@ -82,4 +85,18 @@ export class ResultsComponent implements OnInit {
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
+  getColorForType(type: string): string {
+    // Define a mapping of types to colors
+    // TODO need to check for the right color from FIGMA
+    const typeColors: any = {
+      normal: 'gray',
+      fire: 'red',
+      water: 'blue',
+      grass: 'green',
+      electric: 'yellow'
+
+    };
+    // Return type color if existe or green as default color
+    return typeColors[type] || 'green';
+  }
 }

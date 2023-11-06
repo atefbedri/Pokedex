@@ -1,6 +1,6 @@
 <app-search *ngIf="!pokemonDetails" (emitPokemonDetails)="getPokemonDetails($event)"></app-search>
 <div id="results" *ngIf="pokemonDetails">
-    <div class="result-container">
+    <div class="result-container" [ngStyle]="{'background-color': this.pokemonData.backgroundColor}">
         <div class="header">
             <svg width="39" height="67" viewBox="0 0 39 67" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.7693 33.5L37.5721 8.16973C39.476 6.30079 39.476 3.27064 37.5721 1.4017C35.6683 -0.467235 32.5817 -0.467235 30.6779 1.4017L1.42785 30.116C-0.475952 31.9849 -0.475952 35.0151 1.42785 36.884L30.6779 65.5983C32.5817 67.4672 35.6683 67.4672 37.5721 65.5983C39.476 63.7294 39.476 60.6992 37.5721 58.8303L11.7693 33.5Z" fill="#FAFAFA"/>
